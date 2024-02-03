@@ -12,7 +12,11 @@ module.exports = {
     filename: '[name].bundle.js'
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@core': path.resolve(__dirname, 'src', 'core'),
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
