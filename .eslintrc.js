@@ -10,10 +10,11 @@ module.exports = {
     node: true,
     es6: true
   },
-  extends: ['eslint:recommended', 'google'],
   rules: {
     'semi': 'off',
     'comma-dangle': 'off',
-    'require-jsdoc': 'off'
-  }
+    'require-jsdoc': 'off',
+    'operator-linebreak': 'off'
+  },
+  extends: ['eslint:recommended', 'google']
 }
