@@ -11,14 +11,25 @@ export class DomListener {
 
   initDOMListeners() {
     this.listeners.forEach((listener) => {
-      const method = capitalize(listener)
-      console.log(method)
+      const method = getMethodName(listener)
+      if (!this[method]) {
+        const name = this.name || ''
+        throw new Error(
+            `Method ${method} is not implemented in ${name} Component`
+        )
+      }
+
       // то же, что и addEventListener
-      this.$root.on(listener, () => {})
+      this.$root.on(listener, this[method].bind(this))
     })
   }
 
   removeDOMListeners() {
 
   }
+}
+
+// input => onInput
+function getMethodName(eventName) {
+  return 'on' + capitalize(eventName)
 }
