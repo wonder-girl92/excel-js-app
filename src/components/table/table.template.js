@@ -4,7 +4,6 @@ const CODES = {
 }
 
 function toCell(_, col) {
-  // console.log(col)
   return `
  <div class="cell" contenteditable data-col="${col}"></div>
  `
@@ -53,6 +52,7 @@ export function createTable(rowsCount = 15) {
         .fill('')
         .map(toCell)
         .join('')
+
     rows.push(createRow(i + 1, cells))
   }
 

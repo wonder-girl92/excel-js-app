@@ -21,7 +21,7 @@ export class Table extends ExcelComponent {
       const $parent = $resizer.closest('[data-type="resizable"]')
       const coords = $parent.getCoords()
 
-      const cells = this.$root.findAll(`[data-col="$($parent.data.col}"]`)
+      const cells = this.$root.findAll(`[data-col="${$parent.data.col}"]`)
 
       document.onmousemove = (e) => {
         const delta = e.pageX - coords.right
