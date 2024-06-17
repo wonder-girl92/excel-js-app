@@ -2,7 +2,7 @@ import {ExcelComponent} from '@core/ExcelComponent'
 import {$} from '../../core/dom'
 import {createTable} from './table.template'
 import {resizeHandler} from './table.resize'
-import {isCell, matrix, shouldResize} from './table.functions'
+import {isCell, matrix, nextSelector, shouldResize} from './table.functions'
 import {TableSelection} from './TableSelection'
 
 export class Table extends ExcelComponent {
@@ -56,7 +56,7 @@ export class Table extends ExcelComponent {
 
     const {key} = event
 
-    if (keys.includes(key)) {
+    if (keys.includes(key) && !event.shiftKey) {
       event.preventDefault()
       const id = this.selection.current.id(true)
       const $next = this.$root.find(nextSelector(key, id))
@@ -64,25 +64,4 @@ export class Table extends ExcelComponent {
     }
   }
 }
-
-function nextSelector(key, {col, row}) {
-  switch (key) {
-    case 'Enter':
-    case 'ArrowDown':
-      row++
-      break
-    case 'Tab':
-    case 'ArrowRight':
-      col++
-      break
-    case 'ArrowLeft':
-      col--
-      break
-    case 'ArrowUp':
-      row--
-      break
-  }
-  return `[data-id="${row}:${col}"]`
-}
-
 
