@@ -34,8 +34,8 @@ export class Formula extends ExcelComponent {
 
   onInput(event) {
     const text = $(event.target).text()
-    // eslint-disable-next-line
-    debugger
+    // // eslint-disable-next-line
+    // debugger
     this.$emit('formula:input', text)
   }
 
