@@ -8,7 +8,7 @@ const defaultState = {
   dataState: {},
   stylesState: {},
   currentText: '',
-  currentStyles: defaultStyles
+  currentStyles: defaultStyles,
 }
 
 const normalize = (state) => ({

@@ -1,9 +1,9 @@
 import {
-  APPLY_STYLE,
-  CHANGE_STYLES,
   CHANGE_TEXT,
-  CHANGE_TITLE,
-  TABLE_RESIZE
+  CHANGE_STYLES,
+  TABLE_RESIZE,
+  APPLY_STYLE,
+  CHANGE_TITLE
 } from './types'
 
 export function tableResize(data) {
