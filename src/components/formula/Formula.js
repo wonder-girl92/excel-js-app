@@ -1,4 +1,4 @@
-import {ExcelComponent} from '@core/ExcelComponent'
+import {ExcelComponent} from '../../core/ExcelComponent'
 import {$} from '../../core/dom'
 
 export class Formula extends ExcelComponent {
@@ -24,7 +24,7 @@ export class Formula extends ExcelComponent {
     super.init()
     this.$formula = this.$root.find('#formula')
     this.$on('table:select', ($cell) => {
-      this.$formula.text($cell.text())
+      this.$formula.text($cell.data.value)
     })
   }
 
@@ -33,7 +33,10 @@ export class Formula extends ExcelComponent {
   }
 
   onInput(event) {
-    this.$emit('formula:input', $(event.target).text())
+    const text = $(event.target).text()
+    // eslint-disable-next-line
+    debugger
+    this.$emit('formula:input', text)
   }
 
   onKeydown(event) {

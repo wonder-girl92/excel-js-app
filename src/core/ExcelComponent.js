@@ -1,4 +1,4 @@
-import {DomListener} from '@core/DomListener'
+import {DomListener} from './DomListener'
 
 export class ExcelComponent extends DomListener {
   constructor($root, options = {}) {
@@ -13,9 +13,7 @@ export class ExcelComponent extends DomListener {
   }
 
   // настройка компонента до init
-  prepare() {
-
-  }
+  prepare() {}
 
   // Возвращает шаблон компонента
   toHTML() {
