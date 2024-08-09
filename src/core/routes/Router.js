@@ -1,5 +1,4 @@
 import {$} from '../dom'
-import {ActiveRoute} from './ActiveRoute'
 
 export class Router {
   constructor(selector, routes) {
@@ -7,7 +6,7 @@ export class Router {
       throw new Error('Selector is not provided in Router')
     }
     this.$placeholder = $(selector)
-    this.routets = routes
+    this.routes = routes
     this.changePageHandler = this.changePageHandler.bind(this)
 
     this.init()
@@ -19,10 +18,11 @@ export class Router {
   }
 
   changePageHandler() {
-    console.log(ActiveRoute.path)
-    console.log('param', ActiveRoute.param)
+    const Page = this.routes.excel
+    const page = new Page()
+    this.$placeholder.append(page.getRoot())
 
-    this.$placeholder.html('<h1>' + ActiveRoute.path + '</h1>')
+    page.afterRender()
   }
 
   destroy() {
