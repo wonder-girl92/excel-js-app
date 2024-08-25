@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
-    "lint": "npx eslint ./src"
+    "lint": "npx eslint ./src",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/wonder-girl92/excel-js-app/issues"
   },
-  "homepage": "https://github.com/wonder-girl92/excel-js-app#readme",
+  "homepage": "https://wonder-girl92.github.io/excel-js-app",
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@babel/eslint-parser": "^7.23.10",
@@ -30,6 +32,7 @@
     "eslint": "^8.57.0",
     "eslint-config-google": "^0.14.0",
     "eslint-webpack-plugin": "^4.0.1",
+    "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.8.0",
     "sass": "^1.70.0",
